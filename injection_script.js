@@ -835,14 +835,9 @@ ensureDomLoaded(()=>{
 		let xhr=new XMLHttpRequest()
 		xhr.onload=()=>{
 			let json=JSON.parse(xhr.responseText)
-			if(json&&json.paste&&json.paste.url)
+			if(json&&json.paste)
 			{
 				safelyNavigate(json.paste.url)
-			}
-			else if(json&&json.paste&&json.paste.text&&typeof sjcl!="undefined")
-			{
-				let t=sjcl.decrypt(location.hash.substr(1),json.paste.text)
-				document.querySelector("#captcha-page").innerHTML='<pre id="paste-text">'+t+'</pre>'
 			}
 		}
 		xhr.open("GET",location.pathname+".json")
