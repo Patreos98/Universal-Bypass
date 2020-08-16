@@ -1471,7 +1471,7 @@ ensureDomLoaded(()=>{
 		})
 		if(typeof jQuery=="function")
 		{
-			jQuery(document).off("click")
+			jQuery(document).off("click",".box.download a")
 		}
 	})
 	domainBypass("channelmyanmar.org",()=>document.querySelectorAll("a[href^='https://channelmyanmar.org?1c17f28bf0=']").forEach(a=>{
